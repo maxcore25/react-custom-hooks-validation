@@ -92,7 +92,9 @@ function App() {
                 </Stack>
               </Stack>
               <Button
+                type='submit'
                 variant='contained'
+                disabled={!password.isInputValid}
                 sx={{
                   p: '.8em 2em',
                   textTransform: 'none',
