@@ -2,9 +2,11 @@ import { useState } from 'react';
 import Box from '@mui/material/Box';
 import { Button, Paper, TextField, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
+import { useInput } from './hooks/useInput';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const email = useInput('');
+  const password = useInput('');
 
   return (
     <Box
@@ -32,6 +34,9 @@ function App() {
                 label='Email'
                 name='email'
                 variant='outlined'
+                value={email.value}
+                onChange={e => email.onChange(e)}
+                onBlur={e => email.onBlur(e)}
                 sx={{
                   '& .MuiInputBase-root': {
                     borderRadius: '12px',
@@ -41,7 +46,11 @@ function App() {
               <TextField
                 label='Password'
                 name='password'
+                type='password'
                 variant='outlined'
+                value={password.value}
+                onChange={e => password.onChange(e)}
+                onBlur={e => password.onBlur(e)}
                 sx={{
                   '& .MuiInputBase-root': {
                     borderRadius: '12px',
