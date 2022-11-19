@@ -1,33 +1,68 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.scss';
+import Box from '@mui/material/Box';
+import { Button, Paper, TextField, Typography } from '@mui/material';
+import { Stack } from '@mui/system';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className='App'>
-      <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src='/vite.svg' className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://reactjs.org' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <Box
+      sx={{
+        p: '1em',
+        width: '100%',
+        minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <Paper
+        elevation={3}
+        sx={{ p: '2em', maxWidth: '500px', flex: 1, borderRadius: '12px' }}>
+        <form>
+          <Stack gap={4}>
+            <Typography
+              variant='h3'
+              textAlign='center'
+              sx={{ fontWeight: 700 }}>
+              Login
+            </Typography>
+            <Stack gap={3}>
+              <TextField
+                label='Email'
+                name='email'
+                variant='outlined'
+                sx={{
+                  '& .MuiInputBase-root': {
+                    borderRadius: '12px',
+                  },
+                }}
+              />
+              <TextField
+                label='Password'
+                name='password'
+                variant='outlined'
+                sx={{
+                  '& .MuiInputBase-root': {
+                    borderRadius: '12px',
+                  },
+                }}
+              />
+              <Button
+                variant='contained'
+                sx={{
+                  p: '.8em 2em',
+                  textTransform: 'none',
+                  fontSize: 'inherit',
+                  borderRadius: '12px',
+                }}>
+                Submit
+              </Button>
+            </Stack>
+          </Stack>
+        </form>
+      </Paper>
+    </Box>
   );
 }
 
